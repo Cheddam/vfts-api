@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  web:
+    image: sminnee/silverstripe-lamp:latest
+    environment:
+      - VIRTUAL_HOST="vfts-api.dev"
+      - NO_DB="1"
+      - NO_DEV_BUILD="1"
+    external_links:
+      - clust_db_1:db
+      - clust_gateway_1:gateway
+    volumes:
+      - .:/var/www
+
+networks:
+  default:
+    external:
+      name: clust_default
