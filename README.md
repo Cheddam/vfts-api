@@ -1,52 +1,26 @@
-## Overview
+# VFTS API
 
-Base project folder for a SilverStripe ([http://silverstripe.org](http://silverstripe.org)) installation. Requires additional modules to function:
+A simple SilverStripe-based API which powers [a demo Nuxt app](https://github.com/Cheddam/vues-from-the-server).
 
- * [`framework`](http://github.com/silverstripe/silverstripe-framework): Module including the base framework
- * [`cms`](http://github.com/silverstripe/silverstripe-cms): Module including a Content Management System
- * [`siteconfig`](http://github.com/silverstripe/silverstripe-siteconfig): Module providing a Settings tab in the admin section allowing users to set site wide global configuration.
- * `themes/simple` (optional)
+## Installation
 
-## Installation ##
+This project comes with a Docker Compose configuration, which will spin up
+a functional development environment. Simply run `docker-compose up` to
+start it.
 
-See [installation on different platforms](http://doc.silverstripe.org/framework/en/installation/),
-and [installation from source](http://doc.silverstripe.org/framework/en/installation/from-source).
+Alternatively, you can run this on pretty muh any *nix server with PHP ~5.6 and MariaDB / MySQL.
 
-## Bugtracker ##
+## Usage
 
-Bugs are tracked on github.com ([framework issues](https://github.com/silverstripe/silverstripe-framework/issues),
-[cms issues](https://github.com/silverstripe/silverstripe-cms/issues)). 
-Please read our [issue reporting guidelines](http://doc.silverstripe.org/framework/en/misc/contributing/issues).
+Take a look in the `app/` directory to get an idea of the available endpoints.
+There is also a ModelAdmin to allow manual tinkering with the different models
+(useful for setting up boards and threads as there are no endpoints for making
+them yet).
 
-## Development and Contribution ##
+## Disclaimer
 
-If you would like to make changes to the SilverStripe core codebase, we have an extensive [guide to contributing code](http://doc.silverstripe.org/framework/en/misc/contributing/code).
-
-## Links ##
-
- * [Changelogs](http://doc.silverstripe.org/framework/en/changelogs/)
- * [Bugtracker: Framework](https://github.com/silverstripe/silverstripe-framework/issues)
- * [Bugtracker: CMS](https://github.com/silverstripe/silverstripe-cms/issues)
- * [Bugtracker: Installer](https://github.com/silverstripe/silverstripe-installer/issues)
- * [Forums](http://silverstripe.org/forums)
- * [Developer Mailinglist](https://groups.google.com/forum/#!forum/silverstripe-dev)
-
-## License ##
-
-	Copyright (c) 2007-2013, SilverStripe Limited - www.silverstripe.com
-	All rights reserved.
-
-	Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-	    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-	    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the 
-	      documentation and/or other materials provided with the distribution.
-	    * Neither the name of SilverStripe nor the names of its contributors may be used to endorse or promote products derived from this software 
-	      without specific prior written permission.
-
-	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-	IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
-	LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE 
-	GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
-	STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
-	OF SUCH DAMAGE.
+In order to support running the Nuxt app on a separate domain, the API returns
+a CORS header that allows any domain to access it. This is a serious security
+issue, so although I'm certain no-one will deploy this to a production
+environment, I must state that _you should not deploy this to a production
+environment_.
